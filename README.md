@@ -8,6 +8,24 @@ It combines:
 - **Google Sheets** (as the data hub),
 - **Gemini API** (for sentiment classification).
 
+👉 [View Dataset Here](https://docs.google.com/spreadsheets/d/1D0vJKgS5tj38mYEff97mGi8_bWGMG_LBkfIE59HTK-A/edit?usp=sharing)
+
+---
+
+## 📂 Project Structure
+
+*/
+│── script/
+│ ├── cleaning.py # Data cleaning before processing
+│ ├── main.py # Run sentiment classification with Gemini
+│ ├── summary.py # Summarize sentiment counts
+│ └── credentials.json # Google service account credentials
+│
+│── .env # Store Gemini API key
+│── accounts.db # Local database for accounts (if needed)
+│── tiktok-url-list.txt # List of TikTok video URLs
+│── README.md # Project documentation
+
 ---
 
 ## 🔄 Workflow
