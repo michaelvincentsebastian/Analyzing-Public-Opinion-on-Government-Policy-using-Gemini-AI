@@ -117,6 +117,6 @@ unclassified  55
 error         0
 
 ### Pie Chart for the Data Distribution
-[Sentiment Distribution](sentiment-distribution.png)
+![Sentiment Distribution](sentiment-distribution.png)
 
 ---
