@@ -5,12 +5,11 @@ import time
 import os
 from dotenv import load_dotenv
 
-# ==== CONFIG ====
+# ==== SETUP ====
 CREDENTIALS_PATH = "script/credentials.json"
 SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1D0vJKgS5tj38mYEff97mGi8_bWGMG_LBkfIE59HTK-A/edit?usp=sharing"
 SOURCE_SHEET_NAME = "Clean"
 MODEL_NAME = "gemini-2.0-flash"
-# ======================
 
 # Load .env
 load_dotenv()

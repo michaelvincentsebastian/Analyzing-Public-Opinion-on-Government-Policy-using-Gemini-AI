@@ -14,17 +14,18 @@ It combines:
 
 ## 📂 Project Structure
 
-*/
-│── script/
-│ ├── cleaning.py # Data cleaning before processing
-│ ├── main.py # Run sentiment classification with Gemini
-│ ├── summary.py # Summarize sentiment counts
-│ └── credentials.json # Google service account credentials
-│
-│── .env # Store Gemini API key
-│── accounts.db # Local database for accounts (if needed)
-│── tiktok-url-list.txt # List of TikTok video URLs
-│── README.md # Project documentation
+📦 Analyzing-Public-Opinion-on-Government-Policy-using-Gemini-AI
+ ┣ 📂script
+ ┃ ┣ 📜cleaning.py
+ ┃ ┣ 📜credentials.json
+ ┃ ┣ 📜main.py
+ ┃ ┗ 📜summary.py
+ ┣ 📜.env
+ ┣ 📜.gitattributes
+ ┣ 📜.gitignore
+ ┣ 📜accounts.db
+ ┣ 📜README.md
+ ┗ 📜tiktok-url-list.txt
 
 ---
 
