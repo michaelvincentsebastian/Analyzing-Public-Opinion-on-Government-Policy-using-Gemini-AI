@@ -14,6 +14,7 @@ It combines:
 
 ## 📂 Project Structure
 
+```text
 📦 Analyzing-Public-Opinion-on-Government-Policy-using-Gemini-AI
  ┣ 📂script
  ┃ ┣ 📜cleaning.py
@@ -26,6 +27,7 @@ It combines:
  ┣ 📜accounts.db
  ┣ 📜README.md
  ┗ 📜tiktok-url-list.txt
+```
 
 ---
 
@@ -62,6 +64,7 @@ It combines:
 ### Example `.env`:
 ```bash
 GEMINI_API_KEY=your_api_key_here
+```
 
 ---
 
