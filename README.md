@@ -42,12 +42,33 @@ It combines:
    - Download the scraped data as a **CSV file**.
    - Upload the CSV file into **Google Sheets**, worksheet: `Clean`.
 
-2. **Sentiment Classification (`main.py`)**
+2. **Data Cleaning (`cleaning.py`)**
+   - Make a worksheet for cleaned data (`Clean`)
+   - Run Cleaning Function that:
+     1. Remove emoticons (non-ASCII) with `encode("ascii", "ignore")` and `decode()`
+     2. Lowercase the comments with `lower()`
+     3. Remove whitespace at the beginning and end of comments with `strip()`
+     4. Remove specific symbols such as `@ # % * _ -` using regex:  
+        ```python
+        re.sub(r"[@#%*_\-]", " ", text)
+        ```
+     5. Remove mentions starting with `@` using regex:  
+        ```python
+        re.sub(r"@\S+", "", text)
+        ```
+     6. Remove multiple spaces with regex:  
+        ```python
+        re.sub(r"\s+", " ", text)
+        ```
+   - Make a new column `cleaned_text` to store the cleaned comments
+   - Write results to worksheet `Clean` by replacing it if already exists
+
+3. **Sentiment Classification (`main.py`)**
    - Reads `cleaned_text` from the `Clean` worksheet.
-   - Sends each comment to **Gemini API** for sentiment classification (`positive`, `neutral`, `negative`).
+   - Sends each comment to **Gemini** via **API Key** for sentiment classification (`positive`, `neutral`, `negative`).
    - Writes the resulting sentiment label back into the same worksheet under the `sentiment` column.
 
-3. **Summary (`summary.py`)**
+4. **Summarizing (`summary.py`)**
    - Counts the total number of each sentiment label (`positive`, `neutral`, `negative`, `unclassified`, `error`).
    - Updates the summary into the `Output` worksheet and prints it in the console/log.
 
@@ -116,7 +137,7 @@ negative      81
 unclassified  55
 error         0
 
-### Pie Chart for the Data Distribution
-[Sentiment Distribution](sentiment-distribution.png)
+### Pie Chart for the Data Distribution:
+![Sentiment Distribution](sentiment-distribution.png)
 
 ---
