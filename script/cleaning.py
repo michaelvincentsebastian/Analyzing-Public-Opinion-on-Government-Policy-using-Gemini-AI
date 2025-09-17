@@ -7,8 +7,8 @@ gc = gspread.service_account(filename='script/credentials.json')
 spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1D0vJKgS5tj38mYEff97mGi8_bWGMG_LBkfIE59HTK-A/edit?usp=sharing'
 sh = gc.open_by_url(spreadsheet_url)
 
-# --- Get data from worksheet "Clean" ---
-worksheet = sh.worksheet("Clean")  
+# --- Get data from worksheet "Raw" ---
+worksheet = sh.worksheet("Raw")  
 data = worksheet.get_all_records()
 df = pd.DataFrame(data)
 
