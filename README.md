@@ -1,9 +1,13 @@
 # Sentiment Analysis Pipeline with Google Sheets + Gemini API
 
 ## 📌 Overview
-This project is a simple pipeline for performing **sentiment analysis** on TikTok comments in Indonesian.
+
+### This project is a simple pipeline for performing **sentiment analysis** on TikTok comments in Indonesian.
+
+Tiktok Comments scrapped from -> [Tiktok URL List](tiktok-url-list.txt)
 
 It combines:
+
 - **Apify** (for scraping TikTok comments),
 - **Google Sheets** (as the data hub),
 - **Gemini API** (for sentiment classification).
@@ -91,7 +95,7 @@ GEMINI_API_KEY=your_api_key_here
 
 ## ▶️ Quick Start
 
-1. Install dependencies:
+1. Install dependencies: 
     pip install -r requirements.txt
 
 2. Run sentiment classification:
@@ -111,5 +115,8 @@ neutral       29
 negative      81
 unclassified  55
 error         0
+
+### Pie Chart for the Data Distribution
+[Sentiment Distribution](sentiment-distribution.png)
 
 ---
