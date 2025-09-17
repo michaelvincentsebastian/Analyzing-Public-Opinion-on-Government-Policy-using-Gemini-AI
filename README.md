@@ -18,7 +18,7 @@ It combines:
 
 ## 📂 Project Structure
 
-```text
+```directory
 📦 Analyzing-Public-Opinion-on-Government-Policy-using-Gemini-AI
  ┣ 📂script
  ┃ ┣ 📜cleaning.py
@@ -74,6 +74,35 @@ It combines:
 
 ---
 
+## 🧠 AI Method Used: RAG (Retrieval-Augmented Generation)
+This project applies the **Retrieval-Augmented Generation (RAG)** method to enhance sentiment analysis accuracy, especially for comments containing sarcasm, slang, or political context in Indonesian.
+
+- **Retrieval**: The script retrieves meaning or context from a specialized knowledge base containing unique or sarcastic phrases.
+
+- **Augmentation**: This retrieved context is then injected into the prompt sent to Gemini.
+
+- **Generation**: Gemini generates the sentiment classification based on this augmented information.
+
+### 📝 Example Prompt
+```prompt
+You are an AI trained to classify public comments into sentiment categories (positive, neutral, negative) with awareness of sarcasm, slang, and political context.
+
+To improve accuracy, use the following knowledge base of unusual, sarcastic, or foreign phrases:
+
+[KONTEKS KATA/PHRASE]
+- "Gw takut dia kek Munir" → Negatif
+- "please god protect all the people who fight for justice" → Positif
+- "Pasti mau dikasi kerdus isi indomie" → Negatif
+- "terimakasih orang baik" → Bisa positif/sarkas, bergantung konteks
+
+TASK:
+1. If the comment matches a phrase in the knowledge base, use its meaning and context.
+2. If not, use standard analysis.
+3. Output only in strict JSON.
+```
+
+---
+
 ## 🛠 Tools & Setup
 
 - **Python 3.10+**
@@ -96,21 +125,13 @@ GEMINI_API_KEY=your_api_key_here
 ## ⚠️ Limitations
 
 1. Gemini API Quota
-    - Free-tier limit: 200 requests/day.
-    - Example: if 13 are used for testing, the remaining quota is 187.
-    - Retries or failed requests also consume quota.
+    - **Free-tier limit**: _200 requests/day_.
 
 2. Rate Limit
-    - Free-tier allows max 15 requests/minute.
-    - Script uses time.sleep(5) to avoid hitting this limit.
+    - The free tier allows a maximum of 15 requests per minute. The script uses time.sleep(5) to avoid hitting this limit.
 
-3. Unclassified Outputs
-    - Sometimes Gemini returns invalid or non-JSON responses.
-    - Script marks them as unclassified.
-
-4. External Dependencies
-    - Relies on Apify (scraping) and Google Sheets API (data handling).
-    - Any downtime or quota issues will break the pipeline.
+3. External Dependencies
+    - The pipeline relies heavily on Apify and the Google Sheets API. Any downtime or quota issues with these services will break the pipeline.
 
 ---
 
@@ -130,12 +151,15 @@ GEMINI_API_KEY=your_api_key_here
 ## 📊 Example Output
 
 ### After running summary.py, you will see something like:
-Sentiment     Total
-positive      18
-neutral       29
-negative      81
-unclassified  55
-error         0
+| **Sentiment** | **Total** |
+| :--- | :--- |
+| positive | 30 |
+| neutral | 72 |
+| negative | 97 |
+| unclassified | 0 |
+| error | 0 |
+| :--- | :--- |
+| **Grand Total** | 199 |
 
 ### Pie Chart for the Data Distribution:
 ![Sentiment Distribution](sentiment-distribution.png)
