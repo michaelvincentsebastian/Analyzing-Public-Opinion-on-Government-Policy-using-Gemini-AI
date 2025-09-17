@@ -33,14 +33,14 @@ def clean_comment(text):
 # --- Apply cleaning ---
 df["cleaned_text"] = df["text"].apply(clean_comment)
 
-# --- Write results to worksheet "Cleaned" ---
+# --- Write results to worksheet "Clean" ---
 try:
-    ws_cleaned = sh.worksheet("Cleaned")
+    ws_cleaned = sh.worksheet("Clean")
     sh.del_worksheet(ws_cleaned)  # remove if already exists
 except:
     pass
 
-ws_cleaned = sh.add_worksheet(title="Cleaned", rows=str(len(df)+1), cols=str(len(df.columns)+1))
+ws_cleaned = sh.add_worksheet(title="Clean", rows=str(len(df)+1), cols=str(len(df.columns)+1))
 
 # Upload cleaned dataframe
 ws_cleaned.update([df.columns.values.tolist()] + df.values.tolist())
