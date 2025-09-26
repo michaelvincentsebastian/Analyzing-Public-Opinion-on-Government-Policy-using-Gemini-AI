@@ -25,6 +25,8 @@ It combines:
  ┃ ┣ 📜credentials.json
  ┃ ┣ 📜main.py
  ┃ ┗ 📜summary.py
+ ┣ 📂slide-deck
+ ┃ ┣ 📜deck.pdf
  ┣ 📜.env
  ┣ 📜.gitattributes
  ┣ 📜.gitignore
